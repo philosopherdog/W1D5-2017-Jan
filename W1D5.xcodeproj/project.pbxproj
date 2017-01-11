@@ -14,6 +14,11 @@
 		AAB86FEC1E25532300507D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB86FEB1E25532300507D82 /* Assets.xcassets */; };
 		AAB86FEF1E25532300507D82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB86FED1E25532300507D82 /* LaunchScreen.storyboard */; };
 		AAB86FFA1E25532300507D82 /* W1D5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB86FF91E25532300507D82 /* W1D5Tests.m */; };
+		AAB870051E2595DB00507D82 /* DuckProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB870041E2595DB00507D82 /* DuckProtocolTests.m */; };
+		AAB870071E25977300507D82 /* PlayerDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB870061E25977300507D82 /* PlayerDelegateTests.m */; };
+		AAB870091E259C5600507D82 /* DelegateCallbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB870081E259C5600507D82 /* DelegateCallbackTests.m */; };
+		AAB8700B1E259FED00507D82 /* NSNumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB8700A1E259FED00507D82 /* NSNumberTests.m */; };
+		AAB8700D1E25C68800507D82 /* ClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB8700C1E25C68800507D82 /* ClassExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		AAB86FF51E25532300507D82 /* W1D5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = W1D5Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB86FF91E25532300507D82 /* W1D5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = W1D5Tests.m; sourceTree = "<group>"; };
 		AAB86FFB1E25532300507D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAB870041E2595DB00507D82 /* DuckProtocolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuckProtocolTests.m; sourceTree = "<group>"; };
+		AAB870061E25977300507D82 /* PlayerDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDelegateTests.m; sourceTree = "<group>"; };
+		AAB870081E259C5600507D82 /* DelegateCallbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelegateCallbackTests.m; sourceTree = "<group>"; };
+		AAB8700A1E259FED00507D82 /* NSNumberTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNumberTests.m; sourceTree = "<group>"; };
+		AAB8700C1E25C68800507D82 /* ClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassExtension.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +91,6 @@
 		AAB86FDE1E25532200507D82 /* W1D5 */ = {
 			isa = PBXGroup;
 			children = (
-				AAB86FE21E25532200507D82 /* AppDelegate.h */,
-				AAB86FE31E25532200507D82 /* AppDelegate.m */,
-				AAB86FE51E25532200507D82 /* ViewController.h */,
-				AAB86FE61E25532200507D82 /* ViewController.m */,
-				AAB86FE81E25532300507D82 /* Main.storyboard */,
-				AAB86FEB1E25532300507D82 /* Assets.xcassets */,
-				AAB86FED1E25532300507D82 /* LaunchScreen.storyboard */,
-				AAB86FF01E25532300507D82 /* Info.plist */,
 				AAB86FDF1E25532200507D82 /* Supporting Files */,
 			);
 			path = W1D5;
@@ -97,6 +99,14 @@
 		AAB86FDF1E25532200507D82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAB86FE21E25532200507D82 /* AppDelegate.h */,
+				AAB86FE31E25532200507D82 /* AppDelegate.m */,
+				AAB86FE51E25532200507D82 /* ViewController.h */,
+				AAB86FE61E25532200507D82 /* ViewController.m */,
+				AAB86FE81E25532300507D82 /* Main.storyboard */,
+				AAB86FEB1E25532300507D82 /* Assets.xcassets */,
+				AAB86FED1E25532300507D82 /* LaunchScreen.storyboard */,
+				AAB86FF01E25532300507D82 /* Info.plist */,
 				AAB86FE01E25532200507D82 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -107,6 +117,11 @@
 			children = (
 				AAB86FF91E25532300507D82 /* W1D5Tests.m */,
 				AAB86FFB1E25532300507D82 /* Info.plist */,
+				AAB870041E2595DB00507D82 /* DuckProtocolTests.m */,
+				AAB870061E25977300507D82 /* PlayerDelegateTests.m */,
+				AAB870081E259C5600507D82 /* DelegateCallbackTests.m */,
+				AAB8700A1E259FED00507D82 /* NSNumberTests.m */,
+				AAB8700C1E25C68800507D82 /* ClassExtension.m */,
 			);
 			path = W1D5Tests;
 			sourceTree = "<group>";
@@ -226,6 +241,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB86FFA1E25532300507D82 /* W1D5Tests.m in Sources */,
+				AAB870091E259C5600507D82 /* DelegateCallbackTests.m in Sources */,
+				AAB870051E2595DB00507D82 /* DuckProtocolTests.m in Sources */,
+				AAB8700B1E259FED00507D82 /* NSNumberTests.m in Sources */,
+				AAB8700D1E25C68800507D82 /* ClassExtension.m in Sources */,
+				AAB870071E25977300507D82 /* PlayerDelegateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

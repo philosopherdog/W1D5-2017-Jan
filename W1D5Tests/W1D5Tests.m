@@ -8,32 +8,119 @@
 
 #import <XCTest/XCTest.h>
 
-@interface W1D5Tests : XCTestCase
+// Protocol
+@protocol MyProtocol <NSObject>
+@optional
+- (BOOL)someMethod;
+@end
 
+// MyObject Class
+@interface MyObject : NSObject<MyProtocol>
+@end
+@implementation MyObject
+- (BOOL)someMethod {
+  return YES;
+}
+@end
+
+@interface W1D5Tests : XCTestCase
+@property (nonatomic) BOOL wasCalled;
 @end
 
 @implementation W1D5Tests
 
 - (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  [super setUp];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+  [super tearDown];
+  self.wasCalled = NO;
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+// Example 1
+- (void)fly {}
+- (void)nameOfMethod { }
+
+- (void)testTwoWaysToCreateSelector {
+  
+  //1. compile time
+  SEL aSelector1 = @selector(fly);
+  
+  //2. run time
+  NSString *name = @"name";
+  NSString *of = @"Of";
+  NSString *method = @"Method";
+  NSString *stringFromComponents = [NSString stringWithFormat:@"%@%@%@", name, of, method];
+  SEL aSelector2 = NSSelectorFromString(stringFromComponents);
+  BOOL result1 = [W1D5Tests instancesRespondToSelector:aSelector1];
+  BOOL result2 = [W1D5Tests instancesRespondToSelector:aSelector2];
+  XCTAssertTrue(result1);
+  XCTAssertTrue(result2);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+// Example 2
+
+- (void)testSelectors {
+  // notice the colon
+  SEL mySelector = @selector(myMethodWithData:);
+  [self performSelectorOnMainThread:mySelector withObject:[NSData new] waitUntilDone:YES];
+  XCTAssertTrue(self.wasCalled);
+  self.wasCalled = NO;
+  [self performSelector:@selector(fullNameWithFirstName:lastName:) withObject:@"Joe" withObject:@"Blow"];
+  XCTAssertTrue(self.wasCalled);
+}
+
+- (void)myMethodWithData:(NSData *)data {
+  self.wasCalled = YES;
+}
+
+- (void)fullNameWithFirstName:(NSString *)first lastName:(NSString *)last {
+  self.wasCalled = YES;
+}
+
+
+// Example 3
+
+/*
+ // definition
+ - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+ */
+
+- (void)testButtonSelectorArgument {
+  // adding it to a button
+  UIButton *aButton = [[UIButton alloc] initWithFrame:CGRectZero];
+  [aButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+  XCTAssertTrue(self.wasCalled);
+  
+}
+// actual method the button calls when tapped
+- (void)buttonTapped:(UIButton *)sender {
+  self.wasCalled = YES;
+}
+
+// Example 4
+
+- (void)testSelector {
+  
+  MyObject *myObject = [MyObject new];
+  
+  if ([myObject respondsToSelector:@selector(someMethod)]) {
+    
+    BOOL result = [myObject performSelector:@selector(someMethod)];
+    XCTAssertTrue(result);
+    
+    // or, since it responds, do this:
+    // [myObject someMethod];
+  }
+}
+
+
+- (void)testArraySort {
+  NSArray *unsorted = @[@"Hello", @"Light", @"House", @"Labs"];
+  NSArray *sorted = [unsorted sortedArrayUsingSelector:@selector(compare:)];
+  NSArray *expected = @[@"Hello", @"House", @"Labs", @"Light"];
+  XCTAssert([sorted isEqualToArray:expected]);
 }
 
 @end
