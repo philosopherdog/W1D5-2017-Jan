@@ -52,7 +52,8 @@
   NSString *of = @"Of";
   NSString *method = @"Method";
   NSString *stringFromComponents = [NSString stringWithFormat:@"%@%@%@", name, of, method];
-  SEL aSelector2 = NSSelectorFromString(stringFromComponents);
+  NSString *s = @"nameOfMethod";
+  SEL aSelector2 = NSSelectorFromString(s);
   BOOL result1 = [W1D5Tests instancesRespondToSelector:aSelector1];
   BOOL result2 = [W1D5Tests instancesRespondToSelector:aSelector2];
   XCTAssertTrue(result1);

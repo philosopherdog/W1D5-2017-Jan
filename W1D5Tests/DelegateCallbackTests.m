@@ -45,7 +45,7 @@
   // do segue to Detail
 }
 
-// called by master
+// called by detail
 - (NSString *)detail:(DetailViewController *)detail doStuffWithData:(NSString *)data {
   return [NSString stringWithFormat:@"data gathered from detail: %@", data];
   // dismiss detail
